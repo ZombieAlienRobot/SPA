@@ -1,0 +1,1 @@
+ import type { Shoe, Shoesize } from "./__api";
