@@ -16,6 +16,7 @@ model Shoe {
   price Float
   shoesize Shoesize[]
   description String
+  img String
 }
 
 model Shoesize {
