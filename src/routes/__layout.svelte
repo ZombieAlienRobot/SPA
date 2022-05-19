@@ -1,3 +1,9 @@
-<h1>Welcome to Supershoes</h1>
+<h1>Wilkommen bei Superschuhe!</h1>
 
 <slot />
+
+<style>
+    h1 {
+        margin-left: 25%;
+    }
+</style>
