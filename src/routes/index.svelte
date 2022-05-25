@@ -17,11 +17,11 @@
 </script>
 
 <main>
-	{#each shoes as shoe}
-		<a href={`/${shoe.name}`} class="box">
-			<img src="/shoes/{shoe.img}" alt="running shoe" />
-			<h2>{shoe.name} </h2>
-            <h2>{shoe.price} €</h2>
+	{#each shoes as {shoeName, img, price}}
+		<a href={`/${shoeName}`} class="box">
+			<img src="/shoes/{img}" alt="running shoe" />
+			<h2>{shoeName} </h2>
+            <h2>{price} €</h2>
 		</a>
 	{/each}
 </main>

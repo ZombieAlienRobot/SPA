@@ -1,8 +1,8 @@
 import type { Shoe } from "src/types/types";
 
-const shoes: Shoe[] = [
+export const shoes: Shoe[] = [
     {
-        name: 'BlueBolt',
+        shoeName: 'BlueBolt',
         price: 104.95,
         shoesize: [
             { size: 42 },
@@ -13,7 +13,7 @@ const shoes: Shoe[] = [
         img: 'blue/blue.jpg'
     },
     {
-        name: 'GreenGait',
+        shoeName: 'GreenGait',
         price: 84.99,
         shoesize: [
             { size: 42 },
@@ -24,7 +24,7 @@ const shoes: Shoe[] = [
         img: 'green/green.jpg'
     },
     {
-        name: 'OceanOctave',
+        shoeName: 'OceanOctave',
         price: 99.95,
         shoesize: [
             { size: 42 },
@@ -35,7 +35,7 @@ const shoes: Shoe[] = [
         img: 'greenblue/greenblue.jpg'
     },
     {
-        name: 'OrangeOpportunity',
+        shoeName: 'OrangeOpportunity',
         price: 73.81,
         shoesize: [
             { size: 42 },
@@ -46,7 +46,7 @@ const shoes: Shoe[] = [
         img: 'orange/orange.png'
     },
     {
-        name: 'ThunderingTornado',
+        shoeName: 'ThunderingTornado',
         price: 63.63,
         shoesize: [
             { size: 42 },
@@ -57,7 +57,7 @@ const shoes: Shoe[] = [
         img: 'orangeblue/orangeblue.jpg'
     },
     {
-        name: 'PinkPassion',
+        shoeName: 'PinkPassion',
         price: 74.99,
         shoesize: [
             { size: 42 },
@@ -68,7 +68,7 @@ const shoes: Shoe[] = [
         img: 'pink/pink.jpg'
     },
     {
-        name: 'RedRider',
+        shoeName: 'RedRider',
         price: 124.95,
         shoesize: [
             { size: 42 },
@@ -79,7 +79,7 @@ const shoes: Shoe[] = [
         img: 'red/red.jpg'
     },
     {
-        name: 'SilverSpeeder',
+        shoeName: 'SilverSpeeder',
         price: 99.95,
         shoesize: [
             { size: 42 },
@@ -90,7 +90,7 @@ const shoes: Shoe[] = [
         img: 'silver/silver.jpg'
     },
     {
-        name: 'SnowSlider',
+        shoeName: 'SnowSlider',
         price: 60.00,
         shoesize: [
             { size: 42 },
@@ -100,7 +100,7 @@ const shoes: Shoe[] = [
             'Gleite durch den Schnee mit SnowSpeeder!',
         img: 'white/white.jpg'
     },
-]
+];
 
 export async function get() {
     return {
