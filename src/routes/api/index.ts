@@ -54,7 +54,7 @@ const shoes: Shoe[] = [
             { size: 44 }],
         description:
             'Renne jedem Sturm davon mit ThunderingTornado!',
-        img: 'orangeblue/orangblue.jpg'
+        img: 'orangeblue/orangeblue.jpg'
     },
     {
         name: 'PinkPassion',

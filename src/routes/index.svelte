@@ -17,11 +17,34 @@
 </script>
 
 <main>
-    {#each shoes as shoe}
-        <a href={`/${shoe.name}`} class="box">
-        <img src="/shoes/{shoe.img}" alt="running shoe" />
-        <h2>{shoe.name}</h2>
-        </a>
-
-    {/each}
+	{#each shoes as shoe}
+		<a href={`/${shoe.name}`} class="box">
+			<img src="/shoes/{shoe.img}" alt="running shoe" />
+			<h2>{shoe.name} </h2>
+            <h2>{shoe.price} €</h2>
+		</a>
+	{/each}
 </main>
+
+<style>
+	main {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.box {
+        text-align: center;
+		padding: 0.25rem;
+		margin: 1.5rem;
+		color: black;
+        text-decoration: none;
+		box-shadow: 4px 5px 11px 2px lightgray;
+	}
+	.box:hover {
+		box-shadow: 4px 5px 11px 10px lightgray;
+	}
+	img {
+		width: 15rem;
+		object-fit: contain;
+	}
+</style>

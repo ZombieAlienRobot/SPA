@@ -1,5 +1,4 @@
 export type Shoe = {
-    shoe_id: number;
     name: string;
     price: number;
     shoesize: Shoesize[];
@@ -8,6 +7,5 @@ export type Shoe = {
 };
 
 export type Shoesize = {
-    shoesize_id: number;
     size: number;
 };
