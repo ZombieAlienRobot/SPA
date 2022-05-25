@@ -12,7 +12,7 @@ datasource db {
 
 model Shoe {
   shoe_id Int @id @default(autoincrement())
-  name String
+  name String @unique
   price Float
   shoesize Shoesize[]
   description String

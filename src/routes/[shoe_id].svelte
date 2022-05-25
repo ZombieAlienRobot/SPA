@@ -51,7 +51,7 @@
 					{/each}
 				</select>
 			</form>
-			<button>Zum Einkaufskorb hinzufügen</button>
+			<button>Zum Warenkorb hinzufügen</button>
 		</div>	
 	</div>
 	<div class="productdescription">
