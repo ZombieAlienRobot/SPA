@@ -1,13 +1,27 @@
-<script lang="ts">
-	import type { ShoeType } from 'src/types';
+<script lang="ts" context="module">
+	export async function load({ fetch }) {
+		const res = await fetch('/api');
 
-    export let shoes: ShoeType[] = []
+		if (res.ok) return { props: { shoes: await res.json() } };
+		return {
+			status: res.status,
+			error: new Error()
+		};
+	}
 </script>
 
-<svelte:head>
-    <title>Welcome to Supershoes</title>
-</svelte:head>
+<script lang="ts">
+	import type { Shoe } from 'src/types/types';
 
-{#each shoes as shoe (shoe.shoe_id)}
-    <p>{shoe.name}</p>
-{/each}
+	export let shoes: Shoe[];
+</script>
+
+<main>
+    {#each shoes as shoe}
+        <a href={`/${shoe.name}`} class="box">
+        <img src="/shoes/{shoe.img}" alt="running shoe" />
+        <h2>{shoe.name}</h2>
+        </a>
+
+    {/each}
+</main>

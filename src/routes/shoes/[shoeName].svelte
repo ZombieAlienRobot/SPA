@@ -1,28 +1,15 @@
 <script context="module" lang="ts">
-	export type Shoe = {
-		shoe_id: number;
-		name: string;
-		price: number;
-		shoesize: Shoesize[];
-		description: string;
-		img: String;
-	};
-
-	export type Shoesize = {
-		shoesize_id: number;
-		size: number;
-	};
+	import type {Shoe, Shoesize} from 'src/types/types'
 </script>
 
 <script lang="ts">
 	export let shoe: Shoe;
 	let shoeSizes: Shoesize[] = [
-		{ shoesize_id: 1, size: 42 },
-		{ shoesize_id: 2, size: 43 },
-		{ shoesize_id: 3, size: 44 }
+		{ size: 42 },
+		{ size: 43 },
+		{ size: 44 }
 	];
 	shoe = {
-		shoe_id: 1,
 		name: 'BlueBolt',
 		price: 99.95,
 		shoesize: shoeSizes,

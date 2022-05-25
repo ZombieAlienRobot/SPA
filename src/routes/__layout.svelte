@@ -1,9 +1,20 @@
-<h1>Wilkommen bei Superschuhe!</h1>
+<nav>
+    <a href=".">HOME</a>
+    <a href="/about">ABOUT</a>
+</nav>
+
 
 <slot />
 
 <style>
-    h1 {
-        margin-left: 25%;
+    nav {
+        padding: 1rem;
+        box-shadow: -1px 1px 11px 4px #898989;
     }
+    a {
+        text-decoration: none;
+        color: gray;
+        margin-right: 1rem;
+    }
+
 </style>
