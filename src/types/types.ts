@@ -1,11 +1,7 @@
 export type Shoe = {
     shoeName: string;
     price: number;
-    shoesize: Shoesize[];
+    shoesize: number[];
     description: string;
     img: String;
-};
-
-export type Shoesize = {
-    size: number;
 };

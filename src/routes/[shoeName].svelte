@@ -1,10 +1,9 @@
 <script context="module" lang="ts">
-	import type { Shoe, Shoesize } from 'src/types/types';
+	import type { Shoe } from 'src/types/types';
 
 	export async function load({ fetch, params }) {
-		
 		const { shoeName } = params;
-		const response = await fetch(`/api/${shoeName}`);	
+		const response = await fetch(`/api/${shoeName}`);
 
 		return {
 			status: response.status,
@@ -17,8 +16,9 @@
 
 <script lang="ts">
 	export let shoe: Shoe;
-	export let shoeSizes = shoe.shoesize;
-	let selectedShoeSize;
+	let amounts = [0, 1, 2, 3, 4, 5];
+	let selectedAmount = 0;
+	let selectedShoeSize = shoe.shoesize[0];
 </script>
 
 <main>
@@ -27,28 +27,42 @@
 			<img src="/shoes/{shoe.img}" alt="running shoe" />
 		</div>
 		<div class="productinfo">
-			<h4>{shoe.shoeName}</h4>
-			<h4>{shoe.price} €</h4>
+			<h2>{shoe.shoeName}</h2>
+			<h3>{shoe.price} €</h3>
 			<form>
-				<select bind:value={selectedShoeSize}>
-					{#each shoeSizes as shoeSize}
-						<option value="shoeSizes">
-							{shoeSize.size}
-						</option>
-					{/each}
-				</select>
+				<div class="select">
+					<label for="sizeSelect">Größe</label>
+					<select bind:value={selectedShoeSize} id="sizeSelect">
+						{#each shoe.shoesize as shoeSize}
+							<option value={shoeSize}>
+								{shoeSize}
+							</option>
+						{/each}
+					</select>
+				</div>
+				<div>
+					<label for="amountSelect">Anzahl</label>
+					<select bind:value={selectedAmount} id="amountSelect">
+						{#each amounts as amount}
+							<option value={amount}>
+								{amount}
+							</option>
+						{/each}
+					</select>
+				</div>
+				<button>Zum Warenkorb hinzufügen</button>
 			</form>
-			<button>Zum Warenkorb hinzufügen</button>
 		</div>
 	</div>
 	<div class="productdescription">
-		<h4>Beschreibung</h4>
+		<h3>Beschreibung</h3>
 		<p>{shoe.description}</p>
 	</div>
 </main>
 
 <style>
 	.container {
+		margin-top: 2rem;
 		margin-left: 25%;
 		display: inline-flex;
 	}
@@ -70,5 +84,36 @@
 		margin-top: 1rem;
 		border-top: 2px solid grey;
 		max-width: 50%;
+	}
+
+	img {
+		width: 25rem;
+		object-fit: contain;
+	}
+
+	select {
+		margin: 0.3rem;
+		text-align: center;
+		width: 5rem;
+		height: 2rem;
+		cursor: pointer;
+	}
+
+	label {
+		display: inline-block;
+		width: 3rem;
+		font-weight: bold;
+	}
+
+	button {
+		background-color: navy;
+		border: white 1px solid;
+		color: white;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		font-size: 16px;
+		margin-top: 1rem;
+		cursor: pointer;
 	}
 </style>
