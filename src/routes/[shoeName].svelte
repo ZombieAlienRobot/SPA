@@ -1,5 +1,6 @@
 <script context="module" lang="ts">
 	import type { Shoe } from 'src/types/types';
+	import { cartContents, itemsInCart } from './stores/cart';
 
 	export async function load({ fetch, params }) {
 		const { shoeName } = params;
@@ -15,10 +16,23 @@
 </script>
 
 <script lang="ts">
+
+
 	export let shoe: Shoe;
-	let amounts = [0, 1, 2, 3, 4, 5];
-	let selectedAmount = 0;
+	let amounts = [1, 2, 3, 4, 5];
+	let selectedAmount = 1;
 	let selectedShoeSize = shoe.shoesize[0];
+	const cartItems = $cartContents;
+	let inCart = cartItems[shoe.shoeName] ? cartItems[shoe.shoeName].count : 0;
+	function addToCart() {
+		itemsInCart.update(n => n+selectedAmount)
+		inCart += selectedAmount;
+		cartContents.update(n => {
+			return {...n, [shoe.shoeName + selectedShoeSize]: {...itemsInCart, count: inCart, size: selectedShoeSize}}
+		});
+		console.log($itemsInCart)
+		console.log($cartContents)
+	}
 </script>
 
 <main>
@@ -50,8 +64,8 @@
 						{/each}
 					</select>
 				</div>
-				<button>Zum Warenkorb hinzufügen</button>
 			</form>
+			<button on:click={addToCart}>Zum Warenkorb hinzufügen</button>
 		</div>
 	</div>
 	<div class="productdescription">
