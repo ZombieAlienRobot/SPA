@@ -20,25 +20,14 @@
 	let amounts = [1, 2, 3, 4, 5];
 	let selectedAmount = 1;
 	let selectedShoeSize = shoe.shoesize[0];
-	let shoeSizeAmount = new Map();
-
-	shoe.shoesize.forEach(element => { 
-		shoeSizeAmount.set(element, 0)
-		
-	});
-
-	let selectedCartItem: CartItem = {shoe: shoe, amount: 0, size: 0}
 
 	function addToCart() {
-		shoeSizeAmount.set(selectedShoeSize, (shoeSizeAmount.get(selectedShoeSize)+selectedAmount))
-		itemsInCart.update(n => n+selectedAmount)
-		selectedCartItem.amount = shoeSizeAmount.get(selectedShoeSize);
+		let selectedCartItem: CartItem = { shoe: shoe, amount: 0, size: 0 };
+		itemsInCart.update((n) => n + selectedAmount);
+		selectedCartItem.amount = selectedAmount;
 		selectedCartItem.size = selectedShoeSize;
+		cartContents.addCartItem(selectedCartItem);
 
-		cartContents.update(n => {
-			return {...n, [shoe.shoeName + selectedShoeSize]: selectedCartItem}
-		});
-		console.log($itemsInCart)
 		console.log($cartContents)
 	}
 </script>
