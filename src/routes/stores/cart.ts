@@ -1,9 +1,7 @@
-import { derived, readable, writable } from "svelte/store";
+import { writable } from "svelte/store";
 import type { CartItem, Shoe } from "src/types/types";
-import { element } from "svelte/internal";
 
 export const itemsInCart = writable(0)
-
 
 export const cartContents = createCartContents();
 
@@ -39,33 +37,3 @@ function createCartContents() {
     }
 
 }
-
-
-
-
-export const localStore = (key, initial) => {
-
-    const toString = (value) => JSON.stringify(value, null, 2)
-
-    const toObj = JSON.parse
-
-    if (localStorage.getItem(key) === null) {
-        localStorage.setItem(key, toString(initial))
-    }
-
-    const saved = toObj(localStorage.getItem(key)!)
-
-    const { subscribe, set, update } = writable(saved)
-
-    return {
-        subscribe,
-        set: (value) => {
-            localStorage.setItem(key, toString(value))
-            return set(value)
-        },
-        update
-    }
-
-}
-
-
