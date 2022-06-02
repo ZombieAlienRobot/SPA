@@ -5,3 +5,9 @@ export type Shoe = {
     description: string;
     img: String;
 };
+
+export type CartItem = {
+    shoe: Shoe,
+    amount: number,
+    size: number
+}

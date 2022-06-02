@@ -1,5 +1,5 @@
 <script context="module" lang="ts">
-	import type { Shoe } from 'src/types/types';
+	import type { CartItem, Shoe } from 'src/types/types';
 	import { cartContents, itemsInCart } from './stores/cart';
 
 	export async function load({ fetch, params }) {
@@ -16,19 +16,18 @@
 </script>
 
 <script lang="ts">
-
-
 	export let shoe: Shoe;
 	let amounts = [1, 2, 3, 4, 5];
 	let selectedAmount = 1;
 	let selectedShoeSize = shoe.shoesize[0];
-	const cartItems = $cartContents;
-	let inCart = cartItems[shoe.shoeName] ? cartItems[shoe.shoeName].count : 0;
+	let selectedCartItem: CartItem = {shoe: shoe, amount: 0, size: 0}
+	
 	function addToCart() {
 		itemsInCart.update(n => n+selectedAmount)
-		inCart += selectedAmount;
+		selectedCartItem.amount += selectedAmount;
+		selectedCartItem.size = selectedShoeSize;
 		cartContents.update(n => {
-			return {...n, [shoe.shoeName + selectedShoeSize]: {...itemsInCart, count: inCart, size: selectedShoeSize}}
+			return {...n, [shoe.shoeName + selectedShoeSize]: {...itemsInCart, selectedCartItem: selectedCartItem}}
 		});
 		console.log($itemsInCart)
 		console.log($cartContents)
