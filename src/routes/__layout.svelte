@@ -1,6 +1,10 @@
+<script lang="ts">
+    import {itemsInCart} from "./stores/cart"
+</script>
+
 <nav>
     <a href=".">HOME</a>
-    <a href="/cart">Warenkorb</a>
+    <a href="/cart" class="cart">Warenkorb {$itemsInCart} </a>
 </nav>
 
 
@@ -16,5 +20,6 @@
         color: gray;
         margin-right: 1rem;
     }
+
 
 </style>

@@ -5,39 +5,83 @@
 
 <script lang="ts">
 	export let cartItems = $cartContents;
+	let priceSum = 0;
+	cartItems.forEach((element) => {
+		priceSum += element.shoe.price;
+	});
 </script>
 
 <main>
-	{#each cartItems as cartItem}
-		<div class="cart">
-			<img src="/shoes/{cartItem.shoe.img}" alt="shoe" />
-			<div class="cartContent">
-				<h2>{cartItem.shoe.shoeName}</h2>
-				<h3>Größe: {cartItem.size}</h3>
-				<h3>Anzahl: {cartItem.amount}</h3>
-			</div>
-		</div>
-	{/each}
+	<table>
+		<tr>
+			<th />
+			<th>Artikel</th>
+			<th>Menge</th>
+			<th>Artikelpreis</th>
+            <th>Summe Artikel</th>
+		</tr>
+
+		{#each cartItems as item}
+			<tr>
+				<td class="cartImage"><img src="/shoes/{item.shoe.img}" alt="running shoe" /></td>
+				<td class="itemName"><b>{item.shoe.shoeName}, {item.size}</b></td>
+				<td class="itemQuantity">{item.amount}</td>
+				<td class="itemPrice">{item.shoe.price}</td>
+                <td class="sumItem">{item.shoe.price * item.amount}</td>
+			</tr>
+		{/each}
+	</table>
+    <h3>Summe ({$itemsInCart} Artikel) {priceSum}€</h3>
+    <button>Bestelung aufgeben</button>
 </main>
 
 <style>
-	main {
-		justify-content: center;
-	}
-	.cart {
-        margin-top: 0.5rem;
-		padding: 1rem;
-		border: 0.2rem solid lightgray;
-		display: flex;
-	}
+    table {
+        margin-top: 2rem;
+        border-spacing: 0;
+    }
 
-	.cartContent {
-		margin-left: 5rem;
-		display: inline-block;
-	}
+    th {
+        background-color: lightgrey;
+        padding: 0.3rem;
+    }
+    .cartImage {
+        padding: 1rem;
+        width: 120px;
+    }
+    .itemName {
+        width: 200px;
+        text-align: center;
+    }
 
-	img {
-		width: 15rem;
+    .itemQuantity {
+        text-align: center;
+        width: 100px;
+    }
+
+    .itemPrice {
+        text-align: center;
+        width: 100px;
+    }
+
+    .sumItem {
+        text-align: center;
+    }
+
+    img {
+        width: 100px;
 		object-fit: contain;
+	}
+
+    button {
+		background-color: navy;
+		border: white 1px solid;
+		color: white;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		font-size: 16px;
+		margin-top: 1rem;
+		cursor: pointer;
 	}
 </style>
