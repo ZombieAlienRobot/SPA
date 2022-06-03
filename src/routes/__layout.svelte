@@ -1,5 +1,6 @@
 <nav>
     <a href=".">HOME</a>
+    <a href="/cart">Warenkorb</a>
 </nav>
 
 

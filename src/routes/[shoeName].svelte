@@ -27,8 +27,6 @@
 		selectedCartItem.amount = selectedAmount;
 		selectedCartItem.size = selectedShoeSize;
 		cartContents.addCartItem(selectedCartItem);
-
-		console.log($cartContents)
 	}
 </script>
 

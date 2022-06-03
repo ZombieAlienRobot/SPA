@@ -32,6 +32,9 @@ function createCartContents() {
         decreaseAmount(amount: number, cartItem: CartItem) {
             let index = cartItems.findIndex(element => element.shoe.shoeName === cartItem.shoe.shoeName && element.size === cartItem.size);
             cartItems[index].amount -= amount;
+            if(cartItems[index].amount === 0) {
+                this.removeCartItem(cartItem)
+            }
         },
         empyCart: () => set([]),
     }
