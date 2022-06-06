@@ -1,9 +1,11 @@
 import { writable } from "svelte/store";
 import type { CartItem, Shoe } from "src/types/types";
 
-export const itemsInCart = writable(0)
+export const itemsInCart = writable(0);
 
 export const cartContents = createCartContents();
+
+export const priceTotal = writable(0);
 
 function createCartContents() {
 
@@ -19,7 +21,7 @@ function createCartContents() {
             } else {
                 this.increaseAmount(cartItem.amount, cartItem)
             }
-            
+
         },
         removeCartItem(cartItem: CartItem) {
             let index = cartItems.findIndex(element => element.shoe.shoeName === cartItem.shoe.shoeName && element.size === cartItem.size);
@@ -32,11 +34,14 @@ function createCartContents() {
         decreaseAmount(amount: number, cartItem: CartItem) {
             let index = cartItems.findIndex(element => element.shoe.shoeName === cartItem.shoe.shoeName && element.size === cartItem.size);
             cartItems[index].amount -= amount;
-            if(cartItems[index].amount === 0) {
+            if (cartItems[index].amount === 0) {
                 this.removeCartItem(cartItem)
             }
         },
-        empyCart: () => set([]),
+        empyCart() {
+            cartItems.splice(0, cartItems.length);
+            itemsInCart.set(0);
+        },
     }
 
 }

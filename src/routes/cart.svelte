@@ -1,14 +1,21 @@
 <script context="module" lang="ts">
-	import { itemsInCart, cartContents } from './stores/cart';
+	import { itemsInCart, cartContents, priceTotal } from './stores/cart';
 	import type { CartItem, Shoe } from 'src/types/types';
 </script>
 
 <script lang="ts">
+
 	export let cartItems = $cartContents;
 	let priceSum = 0;
 	cartItems.forEach((element) => {
 		priceSum += element.shoe.price;
 	});
+	priceTotal.set(priceSum)
+
+	function emptyCart() {
+		cartContents.empyCart()
+	}
+
 </script>
 
 <main>
@@ -32,7 +39,7 @@
 		{/each}
 	</table>
     <h3>Summe ({$itemsInCart} Artikel) {priceSum}€</h3>
-    <button>Bestelung aufgeben</button>
+    <a href="/orderPage"><button on:click={emptyCart}>Bestellung aufgeben</button></a>
 </main>
 
 <style>
