@@ -1,11 +1,5 @@
-<script context="module" lang="ts">
-</script>
-
 <script lang="ts">
 import { priceTotal } from "./stores/cart";
-
-
-	
 </script>
 
 
