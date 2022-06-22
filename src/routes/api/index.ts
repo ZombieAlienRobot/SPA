@@ -55,7 +55,7 @@ export const shoes: Shoe[] = [
         shoeName: 'PinkPassion',
         price: 74.99,
         shoesize: [
-            42, 43,44
+            42, 43,44, 45, 46, 47
         ],
         description:
             'Zeige deine Leidenschaft mit PinkPassion!',

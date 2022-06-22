@@ -22,7 +22,7 @@
 	let selectedShoeSize = shoe.shoesize[0];
 
 	function addToCart() {
-		let selectedCartItem: CartItem = { shoe: shoe, amount: 0, size: 0 };
+		let selectedCartItem: CartItem = { shoe, amount: 0, size: 0 };
 		itemsInCart.update((n) => n + selectedAmount);
 		selectedCartItem.amount = selectedAmount;
 		selectedCartItem.size = selectedShoeSize;
@@ -38,7 +38,7 @@
 		<div class="productinfo">
 			<h2>{shoe.shoeName}</h2>
 			<h3>{shoe.price} €</h3>
-			<form>
+			<form on:submit|preventDefault={addToCart}>
 				<div class="select">
 					<label for="sizeSelect">Größe</label>
 					<select bind:value={selectedShoeSize} id="sizeSelect">
@@ -59,8 +59,8 @@
 						{/each}
 					</select>
 				</div>
+				<button>Zum Warenkorb hinzufügen</button>
 			</form>
-			<button on:click={addToCart}>Zum Warenkorb hinzufügen</button>
 		</div>
 	</div>
 	<div class="productdescription">
