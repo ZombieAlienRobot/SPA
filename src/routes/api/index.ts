@@ -5,7 +5,7 @@ export const shoes: Shoe[] = [
         shoeName: 'BlueBolt',
         price: 104.95,
         shoesize: [
-            42, 43,44
+            42, 43, 44
         ],
         description:
             'Sei schnell wie der Blitz mit BlueBolt!',
@@ -15,7 +15,7 @@ export const shoes: Shoe[] = [
         shoeName: 'GreenGait',
         price: 84.99,
         shoesize: [
-            42, 43,44
+            42, 43, 44
         ],
         description:
             'Für jeden der die Natur liebt, Green Gait!',
@@ -25,7 +25,7 @@ export const shoes: Shoe[] = [
         shoeName: 'OceanOctave',
         price: 99.95,
         shoesize: [
-            42, 43,44
+            42, 43, 44
         ],
         description:
             'Rennen am Strand mit OceanOctave!',
@@ -35,7 +35,7 @@ export const shoes: Shoe[] = [
         shoeName: 'OrangeOpportunity',
         price: 73.81,
         shoesize: [
-            42, 43,44
+            42, 43, 44
         ],
         description:
             'Nutze jede Gelegenheit mit OrangeOpportunity!',
@@ -45,7 +45,7 @@ export const shoes: Shoe[] = [
         shoeName: 'ThunderingTornado',
         price: 63.63,
         shoesize: [
-            42, 43,44
+            42, 43, 44
         ],
         description:
             'Renne jedem Sturm davon mit ThunderingTornado!',
@@ -55,7 +55,7 @@ export const shoes: Shoe[] = [
         shoeName: 'PinkPassion',
         price: 74.99,
         shoesize: [
-            42, 43,44, 45, 46, 47
+            42, 43, 44, 45, 46, 47
         ],
         description:
             'Zeige deine Leidenschaft mit PinkPassion!',
@@ -65,7 +65,7 @@ export const shoes: Shoe[] = [
         shoeName: 'RedRider',
         price: 124.95,
         shoesize: [
-            42, 43,44
+            42, 43, 44
         ],
         description:
             'Schneller als jedes Pferd, RedRider!',
@@ -75,7 +75,7 @@ export const shoes: Shoe[] = [
         shoeName: 'SilverSpeeder',
         price: 99.95,
         shoesize: [
-            42, 43,44
+            42, 43, 44
         ],
         description:
             'Durchbrich die Schallmauer mit SilverSpeeder!',
@@ -85,7 +85,7 @@ export const shoes: Shoe[] = [
         shoeName: 'SnowSlider',
         price: 60.00,
         shoesize: [
-            42, 43,44
+            42, 43, 44
         ],
         description:
             'Gleite durch den Schnee mit SnowSpeeder!',
@@ -97,5 +97,5 @@ export async function get() {
     return {
         body: shoes
     }
-    
+
 }
