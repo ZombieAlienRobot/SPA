@@ -8,7 +8,7 @@
 	export let cartItems = $cartContents;
 	let priceSum = 0;
 	cartItems.forEach((element) => {
-		priceSum += element.shoe.price;
+		priceSum += element.shoe.price * element.amount;
 	});
 	priceTotal.set(priceSum)
 
