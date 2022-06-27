@@ -4,18 +4,17 @@
 </script>
 
 <script lang="ts">
-
 	export let cartItems = $cartContents;
 	let priceSum = 0;
 	cartItems.forEach((element) => {
-		priceSum += element.shoe.price;
+		priceSum += element.shoe.price * element.amount;
 	});
-	priceTotal.set(priceSum)
+	priceSum = Math.round(priceSum * 100) / 100;
+	priceTotal.set(priceSum);
 
 	function emptyCart() {
-		cartContents.empyCart()
+		cartContents.empyCart();
 	}
-
 </script>
 
 <main>
@@ -25,7 +24,7 @@
 			<th>Artikel</th>
 			<th>Menge</th>
 			<th>Artikelpreis</th>
-            <th>Summe Artikel</th>
+			<th>Summe Artikel</th>
 		</tr>
 
 		{#each cartItems as item}
@@ -34,53 +33,53 @@
 				<td class="itemName"><b>{item.shoe.shoeName}, {item.size}</b></td>
 				<td class="itemQuantity">{item.amount}</td>
 				<td class="itemPrice">{item.shoe.price}</td>
-                <td class="sumItem">{item.shoe.price * item.amount}</td>
+				<td class="sumItem">{Math.round(item.shoe.price * item.amount * 100) / 100}</td>
 			</tr>
 		{/each}
 	</table>
-    <h3>Summe ({$itemsInCart} Artikel) {priceSum}€</h3>
-    <a href="/orderPage"><button on:click={emptyCart}>Bestellung aufgeben</button></a>
+	<h3>Summe ({$itemsInCart} Artikel) {priceSum}€</h3>
+	<a href="/orderPage"><button on:click={emptyCart}>Bestellung aufgeben</button></a>
 </main>
 
 <style>
-    table {
-        margin-top: 2rem;
-        border-spacing: 0;
-    }
+	table {
+		margin-top: 2rem;
+		border-spacing: 0;
+	}
 
-    th {
-        background-color: lightgrey;
-        padding: 0.3rem;
-    }
-    .cartImage {
-        padding: 1rem;
-        width: 120px;
-    }
-    .itemName {
-        width: 200px;
-        text-align: center;
-    }
+	th {
+		background-color: lightgrey;
+		padding: 0.3rem;
+	}
+	.cartImage {
+		padding: 1rem;
+		width: 120px;
+	}
+	.itemName {
+		width: 200px;
+		text-align: center;
+	}
 
-    .itemQuantity {
-        text-align: center;
-        width: 100px;
-    }
+	.itemQuantity {
+		text-align: center;
+		width: 100px;
+	}
 
-    .itemPrice {
-        text-align: center;
-        width: 100px;
-    }
+	.itemPrice {
+		text-align: center;
+		width: 100px;
+	}
 
-    .sumItem {
-        text-align: center;
-    }
+	.sumItem {
+		text-align: center;
+	}
 
-    img {
-        width: 100px;
+	img {
+		width: 100px;
 		object-fit: contain;
 	}
 
-    button {
+	button {
 		background-color: navy;
 		border: white 1px solid;
 		color: white;
