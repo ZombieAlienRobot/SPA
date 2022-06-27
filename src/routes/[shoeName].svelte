@@ -59,7 +59,7 @@
 						{/each}
 					</select>
 				</div>
-				<button>Zum Warenkorb hinzufügen</button>
+				<button type="submit">Zum Warenkorb hinzufügen</button>
 			</form>
 		</div>
 	</div>

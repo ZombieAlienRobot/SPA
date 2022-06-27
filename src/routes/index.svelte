@@ -1,4 +1,5 @@
 <script lang="ts" context="module">
+	import type { Shoe } from 'src/types/types';
 	export async function load({ fetch }) {
 		const res = await fetch('/api');
 
@@ -11,17 +12,15 @@
 </script>
 
 <script lang="ts">
-	import type { Shoe } from 'src/types/types';
-
 	export let shoes: Shoe[];
 </script>
 
 <main>
-	{#each shoes as {shoeName, img, price}}
+	{#each shoes as { shoeName, img, price }}
 		<a href={`/${shoeName}`} class="box">
 			<img src="/shoes/{img}" alt="running shoe" />
-			<h2>{shoeName} </h2>
-            <h2>{price} €</h2>
+			<h2>{shoeName}</h2>
+			<h2>{price} €</h2>
 		</a>
 	{/each}
 </main>
@@ -33,11 +32,11 @@
 		justify-content: center;
 	}
 	.box {
-        text-align: center;
+		text-align: center;
 		padding: 0.25rem;
 		margin: 1.5rem;
 		color: black;
-        text-decoration: none;
+		text-decoration: none;
 		box-shadow: 4px 5px 11px 2px lightgray;
 	}
 	.box:hover {
